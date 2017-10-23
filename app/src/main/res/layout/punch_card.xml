@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
     <LinearLayout
-        android:layout_weight="1"
         android:background="@color/colorAccent"
         android:layout_width="match_parent"
         android:layout_height="50dp">
@@ -17,8 +16,8 @@
             android:layout_height="match_parent" />
     </LinearLayout>
     <LinearLayout
+        android:layout_marginTop="50dp"
         android:layout_weight="0.5"
-        android:layout_marginTop="60dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
@@ -35,25 +34,27 @@
     <LinearLayout
         android:layout_weight="2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:gravity="center_vertical"
+        android:layout_height="200dp">
         <Button
+            android:layout_weight="1"
             android:text="工作打卡"
             android:textSize="20dp"
             android:background="#ff9999"
-            android:layout_width="150dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content" />
         <Button
+            android:layout_weight="1"
             android:text="出差打卡"
             android:textSize="20dp"
             android:background="#ff9999"
             android:layout_marginLeft="85dp"
-            android:layout_width="150dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_weight="5"
-        android:layout_marginTop="60dp"
+        android:layout_weight="2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
