@@ -4,11 +4,26 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="汇报"
-        android:textSize="20dp" />
+        android:layout_height="50dp">
+        <Button
+            android:id="@+id/huibao"
+            android:text="汇报"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+        <Button
+            android:id="@+id/chaxunhuibao"
+            android:text="查询汇报"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <FrameLayout
+        android:id="@+id/huibao_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
 
 </LinearLayout>
