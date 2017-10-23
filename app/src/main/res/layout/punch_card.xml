@@ -52,7 +52,8 @@
     <LinearLayout
         android:layout_marginTop="60dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
         <EditText
             android:hint="请输入打卡备注"
             android:background="@null"
@@ -60,5 +61,10 @@
             android:textColor="#ff9999"
             android:layout_width="match_parent"
             android:layout_height="50dp" />
+        <Button
+            android:text="提交"
+            android:background="#ff9999"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 </LinearLayout>
