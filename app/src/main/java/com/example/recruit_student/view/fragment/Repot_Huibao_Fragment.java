@@ -1,8 +1,10 @@
 package com.example.recruit_student.view.fragment;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +25,8 @@ import butterknife.Unbinder;
 
 
 public class Repot_Huibao_Fragment extends Fragment{
+
+    private final String[] types = {"咨询", "讲座", "招聘", "出差", "家访", "帮扶"};
 
     @BindView(R.id.rihuibao)
     Button rihuibao;
@@ -50,11 +54,23 @@ public class Repot_Huibao_Fragment extends Fragment{
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.rihuibao:
+                showDialog();
                 break;
             case R.id.lihuihuibao:
                 break;
             case R.id.huodonghuibao:
                 break;
         }
+    }
+
+    private void showDialog() {
+        new AlertDialog.Builder(getContext())
+                .setTitle("请选择日汇报的类型")
+                .setSingleChoiceItems(types, 0, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                }).show();
     }
 }
