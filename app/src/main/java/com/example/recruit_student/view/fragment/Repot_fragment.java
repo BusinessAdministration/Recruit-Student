@@ -33,6 +33,7 @@ public class Repot_fragment extends Fragment{
     @BindView(R.id.chaxunhuibao)
     Button chaxunhuibao;
     @BindView(R.id.huibao_fragment)
+
     FrameLayout huibaoFragment;
     Unbinder unbinder;
     private Fragment[] fragments;
