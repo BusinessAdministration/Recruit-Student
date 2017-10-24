@@ -1,6 +1,7 @@
 package com.example.recruit_student.view.fragment;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.recruit_student.R;
+import com.example.recruit_student.view.activity.ReprotActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -24,7 +26,7 @@ import butterknife.Unbinder;
  */
 
 
-public class Repot_Huibao_Fragment extends Fragment{
+public class Repot_Huibao_Fragment extends Fragment {
 
     private final String[] types = {"咨询", "讲座", "招聘", "出差", "家访", "帮扶"};
 
@@ -57,8 +59,15 @@ public class Repot_Huibao_Fragment extends Fragment{
                 showDialog();
                 break;
             case R.id.lihuihuibao:
+                Intent intent1 = new Intent(getActivity(),ReprotActivity.class);
+                intent1.putExtra("title",lihuihuibao.getText());
+                intent1.putExtra("type","会议");
+                startActivity(intent1);
                 break;
             case R.id.huodonghuibao:
+                Intent intent2 = new Intent(getActivity(),ReprotActivity.class);
+                intent2.putExtra("title",huodonghuibao.getText());
+                intent2.putExtra("type","会议");
                 break;
         }
     }
@@ -69,7 +78,12 @@ public class Repot_Huibao_Fragment extends Fragment{
                 .setSingleChoiceItems(types, 0, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
+                        dialog.dismiss();
+                        String type = types[which];
+                        Intent intent = new Intent(getActivity(), ReprotActivity.class);
+                        intent.putExtra("title", rihuibao.getText());
+                        intent.putExtra("type", type);
+                        startActivity(intent);
                     }
                 }).show();
     }
