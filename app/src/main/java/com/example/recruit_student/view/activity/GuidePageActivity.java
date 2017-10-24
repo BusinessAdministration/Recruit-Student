@@ -45,7 +45,6 @@ public class GuidePageActivity extends AppCompatActivity {
                             Intent intent = new Intent(GuidePageActivity.this, MainActivity.class);
                             startActivity(intent);
                             overridePendingTransition(R.anim.fade,R.anim.hold);
-//                    overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
                             finish();
                         }
                     });
@@ -61,7 +60,6 @@ public class GuidePageActivity extends AppCompatActivity {
                 Intent intent = new Intent(GuidePageActivity.this, MainActivity.class);
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade,R.anim.hold);
-//                overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
                 finish();
             }
         });
