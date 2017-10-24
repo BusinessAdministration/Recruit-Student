@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.recruit_student.R;
@@ -22,14 +23,14 @@ import java.util.TimerTask;
 public class GuidePageActivity extends AppCompatActivity {
 
     private Timer timer;
-    private TextView tvBreak;
+    private ImageView tvBreak;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTheme(R.style.MyAppTheme);
         setContentView(R.layout.activity_guide_page);
-        tvBreak = (TextView) findViewById(R.id.tv_break);
+        tvBreak = (ImageView) findViewById(R.id.tv_break);
         timer = new Timer();
         timer.schedule(new TimerTask() {
             int time=5;
