@@ -68,6 +68,7 @@ public class Repot_Huibao_Fragment extends Fragment {
                 Intent intent2 = new Intent(getActivity(),ReprotActivity.class);
                 intent2.putExtra("title",huodonghuibao.getText());
                 intent2.putExtra("type","会议");
+                startActivity(intent2);
                 break;
         }
     }
