@@ -6,17 +6,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.baidu.location.BDLocation;
+import com.baidu.location.BDLocationListener;
+import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
 import com.example.recruit_student.R;
-import com.example.recruit_student.app.MyApplication;
-import com.example.recruit_student.utils.LocationClientUtils;
-import com.example.recruit_student.utils.PermissionManager;
-
-import static android.content.Context.MODE_PRIVATE;
-import static com.example.recruit_student.view.activity.MainActivity.NETWORK_STATE_BOOLEAN;
-import static com.example.recruit_student.view.activity.MainActivity.NETWORK_STATE_NAME;
 
 /**
  * Created by 范晋炜 on 2017/10/14 0014.
@@ -28,8 +24,10 @@ import static com.example.recruit_student.view.activity.MainActivity.NETWORK_STA
 public class Punch_card_fragment extends Fragment {
 
     private boolean canlocation;
-    private ImageView image_view;
     private TextView dingwei;
+    public MyLocationListenner myListener = new MyLocationListenner();
+    private LocationClientOption option;
+    private LocationClient mLocationClient;
 
     @Nullable
     @Override
@@ -42,30 +40,36 @@ public class Punch_card_fragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        canlocation = PermissionManager.CanLocation(getActivity());
-        newwork();
+        setListener();
+    }
+    private void setListener() {
+        mLocationClient = new LocationClient(getActivity());
+        mLocationClient.registerLocationListener(myListener);
+        option = new LocationClientOption();
+                //设置获得地址位置
+                option.setIsNeedAddress(true);
+                //设置获得poi
+                option.setIsNeedLocationPoiList(true);
+                // 打开gps
+                option.setOpenGps(true);
+                // 设置坐标类型
+                option.setCoorType("bd09ll");
+                mLocationClient.setLocOption(option);
+                mLocationClient.start();
     }
 
-    private void newwork() {
-        if (canlocation) {
-            boolean aBoolean = getActivity().getSharedPreferences(NETWORK_STATE_NAME, MODE_PRIVATE)
-                    .getBoolean(NETWORK_STATE_BOOLEAN, false);
-            if (aBoolean) {
-                LocationClientUtils.getLocation(MyApplication.context());
-                LocationClientUtils.setMyLocationListener(new LocationClientUtils.MyLocationListener() {
-                    @Override
-                    public void myLocatin(double mylongitude, double mylatitude, String province, String city, String street) {
-                        dingwei.setText("您当前的位置是"+province+"--"+city+"--"+street);
-                    }
-                });
-            }else {
-                dingwei.setText("您的定位未开启");
-            }
+    /**
+     * 定位SDK监听函数
+     */
+    public class MyLocationListenner implements BDLocationListener {
+
+        @Override
+        public void onReceiveLocation(BDLocation location) {
+            String str = "您当前的位置："+location.getAddress().address+",纬度："+location.getLatitude();
+            dingwei.setText(str);
         }
     }
-
     private void initView(View view) {
-        image_view = (ImageView) view.findViewById(R.id.image_view);
         dingwei = (TextView) view.findViewById(R.id.text_view);
     }
 }
