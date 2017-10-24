@@ -21,6 +21,7 @@ import com.example.recruit_student.R;
  * 打卡
  */
 
+//张庆龄打卡地图定位
 public class Punch_card_fragment extends Fragment {
 
     private boolean canlocation;
