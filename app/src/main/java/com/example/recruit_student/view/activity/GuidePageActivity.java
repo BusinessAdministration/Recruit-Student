@@ -19,7 +19,7 @@ import java.util.TimerTask;
  */
 
 
-public class GuidePageActivity extends AppCompatActivity{
+public class GuidePageActivity extends AppCompatActivity {
 
     private Timer timer;
     private TextView tvBreak;
@@ -27,7 +27,7 @@ public class GuidePageActivity extends AppCompatActivity{
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //显示当前页面布局
+        setTheme(R.style.MyAppTheme);
         setContentView(R.layout.activity_guide_page);
         tvBreak = (TextView) findViewById(R.id.tv_break);
         timer = new Timer();
@@ -38,9 +38,18 @@ public class GuidePageActivity extends AppCompatActivity{
                 if (time!=0){
                     time--;
                 }else{
-                    Intent intent = new Intent(GuidePageActivity.this, MainActivity.class);
-                    startActivity(intent);
-                    finish();
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Intent intent = new Intent(GuidePageActivity.this, MainActivity.class);
+                            startActivity(intent);
+                            overridePendingTransition(R.anim.fade,R.anim.hold);
+//                    overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
+                            finish();
+                        }
+                    });
+
                 }
             }
         },0,1000);
@@ -51,6 +60,8 @@ public class GuidePageActivity extends AppCompatActivity{
             public void onClick(View v) {
                 Intent intent = new Intent(GuidePageActivity.this, MainActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.fade,R.anim.hold);
+//                overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
                 finish();
             }
         });
@@ -59,7 +70,7 @@ public class GuidePageActivity extends AppCompatActivity{
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (timer!=null){
+        if (timer != null) {
             //关闭timer
             timer.cancel();
         }
