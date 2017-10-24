@@ -38,7 +38,19 @@ public class GuidePageActivity extends AppCompatActivity {
             public void run() {
                 if (time!=0){
                     time--;
-                }else{
+                    if(time == 0){
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Intent intent = new Intent(GuidePageActivity.this, MainActivity.class);
+                                startActivity(intent);
+                                overridePendingTransition(R.anim.fade,R.anim.hold);
+                                finish();
+                            }
+                        });
+                    }
+                }
+                /*else{
 
                     runOnUiThread(new Runnable() {
                         @Override
@@ -50,7 +62,7 @@ public class GuidePageActivity extends AppCompatActivity {
                         }
                     });
 
-                }
+                }*/
             }
         },0,1000);
 
