@@ -21,6 +21,12 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
 
+    //保存网络状态的SharedPreferences()的名字
+    public static final String NETWORK_STATE_NAME = "NETWORK_STATE_NAME";
+    //保存是否有网络的boolean值
+    public static final String NETWORK_STATE_BOOLEAN = "NETWORK_STATE_BOOLEAN";
+    //跳转网络设置的请求码
+    public static final int SET_NETWORK_REQUEST = 106;
     //id
     @BindView(R.id.main_framelayout)
     FrameLayout mainFramelayout;
