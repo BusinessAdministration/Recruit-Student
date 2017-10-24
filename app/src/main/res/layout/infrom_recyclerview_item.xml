@@ -17,6 +17,7 @@
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:button="@null"
+            android:background="@drawable/single_button_selector"
             />
         <TextView
             android:layout_marginLeft="15dp"
