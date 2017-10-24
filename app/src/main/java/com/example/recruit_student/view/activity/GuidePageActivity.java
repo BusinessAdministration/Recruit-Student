@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.recruit_student.R;
@@ -19,17 +20,17 @@ import java.util.TimerTask;
  */
 
 
-public class GuidePageActivity extends AppCompatActivity{
+public class GuidePageActivity extends AppCompatActivity {
 
     private Timer timer;
-    private TextView tvBreak;
+    private ImageView tvBreak;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //显示当前页面布局
+        setTheme(R.style.MyAppTheme);
         setContentView(R.layout.activity_guide_page);
-        tvBreak = (TextView) findViewById(R.id.tv_break);
+        tvBreak = (ImageView) findViewById(R.id.tv_break);
         timer = new Timer();
         timer.schedule(new TimerTask() {
             int time=5;
@@ -37,11 +38,31 @@ public class GuidePageActivity extends AppCompatActivity{
             public void run() {
                 if (time!=0){
                     time--;
-                }else{
-                    Intent intent = new Intent(GuidePageActivity.this, MainActivity.class);
-                    startActivity(intent);
-                    finish();
+                    if(time == 0){
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Intent intent = new Intent(GuidePageActivity.this, MainActivity.class);
+                                startActivity(intent);
+                                overridePendingTransition(R.anim.fade,R.anim.hold);
+                                finish();
+                            }
+                        });
+                    }
                 }
+                /*else{
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Intent intent = new Intent(GuidePageActivity.this, MainActivity.class);
+                            startActivity(intent);
+                            overridePendingTransition(R.anim.fade,R.anim.hold);
+                            finish();
+                        }
+                    });
+
+                }*/
             }
         },0,1000);
 
@@ -51,6 +72,7 @@ public class GuidePageActivity extends AppCompatActivity{
             public void onClick(View v) {
                 Intent intent = new Intent(GuidePageActivity.this, MainActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.fade,R.anim.hold);
                 finish();
             }
         });
@@ -59,7 +81,7 @@ public class GuidePageActivity extends AppCompatActivity{
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (timer!=null){
+        if (timer != null) {
             //关闭timer
             timer.cancel();
         }
