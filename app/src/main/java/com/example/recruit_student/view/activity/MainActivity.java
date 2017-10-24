@@ -1,5 +1,6 @@
 package com.example.recruit_student.view.activity;
 
+import android.graphics.Color;
 import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -62,6 +63,9 @@ public class MainActivity extends AppCompatActivity {
                     RadioButton radioButton = (RadioButton) radioGroup.getChildAt(i);
                     if (radioButton.isChecked()) {
                         setFragmentHideOrShow(i);
+                        radioButton.setTextColor(Color.RED);
+                    }else {
+                        radioButton.setTextColor(Color.BLACK);
                     }
                 }
             }

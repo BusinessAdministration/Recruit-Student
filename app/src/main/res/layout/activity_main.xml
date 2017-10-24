@@ -1,63 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.recruit_student.view.activity.MainActivity">
     <FrameLayout
         android:id="@+id/main_framelayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/radioGroup"></FrameLayout>
-    <RadioGroup
+        android:layout_weight="1"></FrameLayout>
+
+    <View
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/radioGroup">
+        android:layout_height="3dp"
+        android:background="@android:drawable/gallery_thumb" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:orientation="horizontal">
         <!--打卡-->
         <RadioButton
             android:id="@+id/punch_card"
-            android:layout_weight="1"
-            android:text="打卡"
-            android:checked="true"
-            android:background="@drawable/main_btn_click"
-            android:button="@null"
-            android:gravity="center"
             android:layout_width="0dp"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:drawableTop="@drawable/daka_selector"
+            android:gravity="center"
+            android:text="打卡"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="13sp" />
         <!--汇报-->
+
         <RadioButton
             android:id="@+id/repot"
-            android:layout_weight="1"
-            android:text="汇报"
-            android:background="@drawable/main_btn_click"
-            android:button="@null"
-            android:gravity="center"
             android:layout_width="0dp"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/huibao_selector"
+            android:gravity="center"
+            android:text="汇报"
+            android:textSize="13sp" />
         <!--通知-->
         <RadioButton
             android:id="@+id/infrom"
-            android:layout_weight="1"
-            android:text="通知"
-            android:background="@drawable/main_btn_click"
-            android:button="@null"
-            android:gravity="center"
             android:layout_width="0dp"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/tongzhi_selector"
+            android:gravity="center"
+            android:text="通知"
+            android:textSize="13sp" />
         <!--我的-->
         <RadioButton
             android:id="@+id/my"
-            android:layout_weight="1"
-            android:text="我的"
-            android:background="@drawable/main_btn_click"
-            android:button="@null"
-            android:gravity="center"
             android:layout_width="0dp"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/wode_selector"
+            android:gravity="center"
+            android:text="我的"
+            android:textSize="13sp" />
     </RadioGroup>
-</RelativeLayout>
+</LinearLayout>
