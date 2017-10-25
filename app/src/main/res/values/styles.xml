@@ -21,4 +21,7 @@
         <item name="android:screenOrientation">portrait</item>
     </style>
 
+    <style name="StyleableToast">
+    <item name="android:colorBackground">@color/purple</item>
+    </style>
 </resources>

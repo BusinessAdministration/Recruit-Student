@@ -6,7 +6,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="@color/colorAccent">
+        android:background="#999999">
 
         <TextView
             android:layout_width="wrap_content"
@@ -18,8 +18,13 @@
             android:textColor="#ff000000"
             android:textSize="23sp" />
     </RelativeLayout>
+    <TextView
+        android:id="@+id/shezhi"
+        android:gravity="center_vertical"
+        android:textSize="17dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
     <LinearLayout
-        android:layout_marginTop="50dp"
         android:layout_weight="0.5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -32,7 +37,6 @@
         <TextView
             android:id="@+id/text_view"
             android:layout_marginTop="20dp"
-            android:text="eddfsfsdf"
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -44,7 +48,7 @@
         android:gravity="center_vertical"
         android:layout_height="200dp">
         <Button
-            android:id="@+id/button"
+            android:id="@+id/gongzuo"
             android:layout_weight="1"
             android:text="工作打卡"
             android:textSize="20dp"
@@ -53,6 +57,7 @@
             android:layout_height="50dp" />
 
         <Button
+            android:id="@+id/chuchai"
             android:layout_weight="1"
             android:text="出差打卡"
             android:textSize="20dp"
@@ -63,6 +68,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:gravity="center"
         android:layout_weight="2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -75,10 +81,5 @@
             android:textColor="#ff9999"
             android:layout_width="match_parent"
             android:layout_height="50dp" />
-        <Button
-            android:text="提交"
-            android:background="#ff9999"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
     </LinearLayout>
 </LinearLayout>
