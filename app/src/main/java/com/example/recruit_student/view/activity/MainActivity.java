@@ -82,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
         //开启事务
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
+        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         //添加首页
         transaction.add(R.id.main_framelayout,punchCardFragment).commit();
         //默认设置第一个fragment显示
@@ -95,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
         }
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction ft = fragmentManager.beginTransaction();
-
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         //隐藏
         ft.hide(fragments[mIndex]);
         //判断是否添加

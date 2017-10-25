@@ -53,6 +53,7 @@ public class Repot_fragment extends Fragment{
         fragments = new Fragment[]{rhb,rcxhb};
         FragmentManager manager = getChildFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
+        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         transaction.add(R.id.huibao_fragment,rhb).commit();
         setFragmentHideOrShow(0);
     }
@@ -81,7 +82,7 @@ public class Repot_fragment extends Fragment{
         }
         FragmentManager fragmentManager = getChildFragmentManager();
         FragmentTransaction ft = fragmentManager.beginTransaction();
-
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
         //隐藏
         ft.hide(fragments[mIndex]);
         //判断是否添加

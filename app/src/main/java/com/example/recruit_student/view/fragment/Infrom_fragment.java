@@ -54,6 +54,7 @@ public class Infrom_fragment extends Fragment{
         shoudaoFragment = new Infrom_shoudao_fragment();
         FragmentManager manager = getActivity().getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
+        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         transaction.add(R.id.infrom_framelayout, fasongFragment);
         transaction.add(R.id.infrom_framelayout, shoudaoFragment);
         transaction.show(fasongFragment);
@@ -73,6 +74,7 @@ public class Infrom_fragment extends Fragment{
             case R.id.btn_fasong:
                 FragmentManager manager = getActivity().getSupportFragmentManager();
                 FragmentTransaction transaction = manager.beginTransaction();
+                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
                 transaction.show(fasongFragment);
                 transaction.hide(shoudaoFragment);
                 transaction.commit();
@@ -80,6 +82,7 @@ public class Infrom_fragment extends Fragment{
             case R.id.btn_jieshou:
                 FragmentManager manager2 = getActivity().getSupportFragmentManager();
                 FragmentTransaction transaction2 = manager2.beginTransaction();
+                transaction2.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
                 transaction2.hide(fasongFragment);
                 transaction2.show(shoudaoFragment);
                 transaction2.commit();
