@@ -30,13 +30,17 @@
             android:text="汇报"
             android:layout_weight="1"
             android:layout_width="0dp"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:background="@drawable/btn_style"
+            />
         <Button
             android:id="@+id/chaxunhuibao"
             android:text="查询汇报"
             android:layout_weight="1"
             android:layout_width="0dp"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:background="@drawable/btn_style"
+            />
     </LinearLayout>
     <FrameLayout
         android:id="@+id/huibao_fragment"
