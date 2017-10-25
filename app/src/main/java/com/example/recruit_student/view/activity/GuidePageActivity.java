@@ -73,6 +73,7 @@ public class GuidePageActivity extends AppCompatActivity {
                 Intent intent = new Intent(GuidePageActivity.this, MainActivity.class);
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade,R.anim.hold);
+                timer.cancel();
                 finish();
             }
         });
