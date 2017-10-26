@@ -244,16 +244,18 @@
                     android:layout_width="110dp"
                     android:layout_height="35dp"
                     android:layout_marginRight="10dp"
-                    android:background="@null"
+                    android:background="@drawable/submmit_style"
                     android:text="提交"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+
+                    />
 
                 <Button
                     android:id="@+id/gouBack"
                     android:layout_width="110dp"
                     android:layout_height="35dp"
                     android:layout_marginLeft="10dp"
-                    android:background="@null"
+                    android:background="@drawable/submmit_style"
                     android:text="返回"
                     android:textSize="20sp" />
             </LinearLayout>
