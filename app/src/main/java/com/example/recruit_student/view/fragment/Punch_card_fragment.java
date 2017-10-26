@@ -25,6 +25,7 @@ import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.example.recruit_student.R;
+import com.example.recruit_student.view.activity.MyPunch_card_Activity;
 import com.muddzdev.styleabletoastlibrary.StyleableToast;
 
 /**
@@ -55,6 +56,7 @@ public class Punch_card_fragment extends Fragment implements View.OnClickListene
     private StyleableToast styleableToast;
     private NetworkChangeReciver network;
     private IntentFilter intentfile;
+    private TextView jilu;
 
     @Nullable
     @Override
@@ -67,12 +69,13 @@ public class Punch_card_fragment extends Fragment implements View.OnClickListene
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        setListener();
+
         intentfile = new IntentFilter();
         intentfile.addAction("android.net.conn.CONNECTIVITY_CHANGE");
         network = new NetworkChangeReciver();
         getActivity().registerReceiver(network, intentfile);
-
-        setListener();
     }
 
     // TODO: 2017/10/25 配置启动定位
@@ -114,6 +117,10 @@ public class Punch_card_fragment extends Fragment implements View.OnClickListene
                     ed_text.setText("");
                 }
                 break;
+            case R.id.jilu:
+                Intent intent = new Intent(getActivity(), MyPunch_card_Activity.class);
+                startActivity(intent);
+                break;
 
         }
     }
@@ -125,6 +132,7 @@ public class Punch_card_fragment extends Fragment implements View.OnClickListene
         public void onReceiveLocation(BDLocation location) {
                     str = "您当前的位置：" + location.getAddress().address + ",纬度：" + location.getLatitude();
                     weizhi = location.getAddress().address;
+                    dingwei.setText(str);
             }
 
     }
@@ -135,6 +143,8 @@ public class Punch_card_fragment extends Fragment implements View.OnClickListene
         gongzuo = (Button) view.findViewById(R.id.gongzuo);
         ed_text = (EditText) view.findViewById(R.id.ed_text);
         shezhi = (TextView) view.findViewById(R.id.shezhi);
+        jilu = (TextView) view.findViewById(R.id.jilu);
+        jilu.setOnClickListener(this);
         shezhi.setOnClickListener(this);
         gongzuo.setOnClickListener(this);
         chuchai = (Button) view.findViewById(R.id.chuchai);
@@ -153,7 +163,6 @@ public class Punch_card_fragment extends Fragment implements View.OnClickListene
                 shezhi.setText(null);
                 shezhi.setBackgroundColor(0);
                 shezhi.setOnClickListener(null);
-
             }else{
                 dingwei.setText("请打开网络完成定位");
                 shezhi.setText("网络连接错误，请您检查网络设置        >");
