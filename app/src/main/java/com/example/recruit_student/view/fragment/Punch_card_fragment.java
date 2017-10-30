@@ -138,7 +138,7 @@ public class Punch_card_fragment extends Fragment implements View.OnClickListene
     }
 
     // TODO: 2017/10/25 得到ID
-    private void initView(View view) {
+    private void initView(View view){
         dingwei = (TextView) view.findViewById(R.id.text_view);
         gongzuo = (Button) view.findViewById(R.id.gongzuo);
         ed_text = (EditText) view.findViewById(R.id.ed_text);
@@ -150,7 +150,6 @@ public class Punch_card_fragment extends Fragment implements View.OnClickListene
         chuchai = (Button) view.findViewById(R.id.chuchai);
         chuchai.setOnClickListener(this);
     }
-
     // TODO: 2017/10/26 广播监听网络判断进行没网络与有网络时的页面设置
     class NetworkChangeReciver extends BroadcastReceiver{
 
